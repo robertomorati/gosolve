@@ -1,0 +1,54 @@
+definitions:
+  errors.APIError:
+    properties:
+      message:
+        type: string
+      statusCode:
+        type: integer
+    type: object
+  models.SearchResponse:
+    properties:
+      index:
+        type: integer
+      message:
+        type: string
+      value:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /search/{value}:
+    get:
+      consumes:
+      - application/json
+      description: Search for the closest value
+      parameters:
+      - description: Value to search
+        in: path
+        name: value
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.SearchResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errors.APIError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/errors.APIError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.APIError'
+      summary: Search for the closest value
+      tags:
+      - Search
+swagger: "2.0"
