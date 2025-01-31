@@ -39,6 +39,11 @@ docker-compose up --build -d
     - If not found, returns the closest value within a 10% margin.
 4. Frontend displays results (or error messages).
 
+## Frontend Notes
+
+  - I used [Vite](https://vite.dev/guide/) for faster and development experience (vite is new for me)
+  - I chose Material-UI for its simplicity and ease of use (I have used for other personal proejcts).
+
 
 ---
 
